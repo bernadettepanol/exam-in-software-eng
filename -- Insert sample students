@@ -1,0 +1,24 @@
+-- Insert sample students
+INSERT INTO Students (first_name, last_name, email, enrollment_date, status) 
+VALUES ('Bernadette', 'Panol', 'bernadette.panol@google.com', '2024-09-21', 'Enrolled'),
+       ('Nestle', 'Celaje', 'nestle.celaje@google.com', '2024-09-21', 'Enrolled');
+
+-- Insert sample teachers
+INSERT INTO Teachers (first_name, last_name, expertise, email) 
+VALUES ('Ivan', 'Dequito', 'Software Engineering', 'ivan.dequito@google.com'),
+       ('Brandon', 'Sibbaluca', 'Thesis Writing', 'brandon.sibbaluca@google.com');
+
+-- Insert sample courses
+INSERT INTO Courses (course_name, course_description, teacher_id) 
+VALUES ('Computer Science', 'Software Engineering 2', 1),  
+       ('Computer Science', 'Thesis Writing 1', 2);      
+
+-- Insert sample learning paths
+INSERT INTO LearningPaths (student_id, course_id, progress_percentage, status) 
+VALUES (1, 1, 100, 'Successful'), 
+       (2, 2, 100, 'Successful');  
+
+-- Insert sample assessments
+INSERT INTO Assessments (student_id, course_id, assessment_type, score, feedback) 
+VALUES (1, 1, 'Exam', 100, 'Good Job!'),
+       (2, 2, 'Exam', 100, 'Good Job!');
