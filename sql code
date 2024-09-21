@@ -1,0 +1,50 @@
+-- Create the Students table
+CREATE TABLE Students (
+    student_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    email VARCHAR(100) ,
+    enrollment_date DATE,
+    status VARCHAR(20)
+);
+
+-- Create the Courses table
+CREATE TABLE Courses (
+    course_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    course_name VARCHAR(100),
+    course_description TEXT,
+    teacher_id INTEGER,
+    FOREIGN KEY (teacher_id) REFERENCES Teachers(teacher_id)
+);
+
+-- Create the Teachers table
+CREATE TABLE Teachers (
+    teacher_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    expertise VARCHAR(100),
+    email VARCHAR(100) 
+);
+
+-- Create the LearningPaths table
+CREATE TABLE LearningPaths (
+    path_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    student_id INTEGER,
+    course_id INTEGER,
+    progress_percentage DECIMAL(5,2),
+    status VARCHAR(20),
+    FOREIGN KEY (student_id) REFERENCES Students(student_id),
+    FOREIGN KEY (course_id) REFERENCES Courses(course_id)
+);
+
+-- Create the Assessments table
+CREATE TABLE Assessments (
+    assessment_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    student_id INTEGER,
+    course_id INTEGER,
+    assessment_type VARCHAR(50),
+    score DECIMAL(5,2),
+    feedback TEXT,
+    FOREIGN KEY (student_id) REFERENCES Students(student_id),
+    FOREIGN KEY (course_id) REFERENCES Courses(course_id)
+);
