@@ -1,0 +1,4 @@
+SELECT s.first_name, s.last_name, c.course_name
+FROM Students s
+JOIN LearningPaths lp ON s.student_id = lp.student_id
+JOIN Courses c ON lp.course_id = c.course_id;
