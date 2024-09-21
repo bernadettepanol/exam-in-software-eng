@@ -1,0 +1,8 @@
+SELECT s.first_name, s.last_name, c.course_name, 'Student' AS role
+FROM Students s
+JOIN LearningPaths lp ON s.student_id = lp.student_id
+JOIN Courses c ON lp.course_id = c.course_id
+UNION
+SELECT t.first_name, t.last_name, c.course_name, 'Teacher' AS role
+FROM Teachers t
+JOIN Courses c ON t.teacher_id = c.teacher_id;
