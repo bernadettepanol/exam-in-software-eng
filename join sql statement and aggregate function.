@@ -1,0 +1,4 @@
+SELECT c.course_name, AVG(a.score) AS average_score
+FROM Courses c
+JOIN Assessments a ON c.course_id = a.course_id
+GROUP BY c.course_name;
